@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/book-api-example/book-api-example.iml" filepath="$PROJECT_DIR$/book-api-example/book-api-example.iml" />
       <module fileurl="file://$PROJECT_DIR$/data_modeling/data_modeling.iml" filepath="$PROJECT_DIR$/data_modeling/data_modeling.iml" />
       <module fileurl="file://$PROJECT_DIR$/flex_layout/flex_layout.iml" filepath="$PROJECT_DIR$/flex_layout/flex_layout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java/java.iml" filepath="$PROJECT_DIR$/java/java.iml" />
       <module fileurl="file://$PROJECT_DIR$/jpa_relation/jpa_relation.iml" filepath="$PROJECT_DIR$/jpa_relation/jpa_relation.iml" />
     </modules>
   </component>

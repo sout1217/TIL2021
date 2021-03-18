@@ -3,8 +3,9 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/jpa_relation/pom.xml" />
         <option value="$PROJECT_DIR$/data_modeling/pom.xml" />
+        <option value="$PROJECT_DIR$/jpa_relation/pom.xml" />
+        <option value="$PROJECT_DIR$/book-api-example/pom.xml" />
       </list>
     </option>
   </component>

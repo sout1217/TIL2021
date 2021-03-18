@@ -1,0 +1,21 @@
+# Book 페이징 조회
+GET {{host}}/{{api}}/books?page=2&size=10
+Accept: application/json
+
+###
+
+# Book 단일 조회
+GET {{host}}/{{api}}/books/2
+
+###
+
+# Book 등록
+POST {{host}}/{{api}}/books
+Content-Type: application/json
+
+{
+  "title": "타이틀",
+  "writer": "작성자",
+  "publisher": "출판사",
+  "price": "가격"
+}
