@@ -8,6 +8,5 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vue-til" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/vue-til-server" vcs="Git" />
   </component>
 </project>
