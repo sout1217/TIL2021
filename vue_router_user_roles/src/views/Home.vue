@@ -2,11 +2,17 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <div>
+      <button @click="setRole({ role: 'guest', level: 1 })">
+        게스트 권한 얻기
+      </button>
       <button @click="setRole({ role: 'user', level: 1 })">
         유저권한 얻기
       </button>
       <button @click="setRole({ role: 'user', level: 2 })">
         유저 실버권한 얻기
+      </button>
+      <button @click="setRole({ role: 'admin', level: 1 })">
+        어드민 권한 얻기
       </button>
     </div>
   </div>
