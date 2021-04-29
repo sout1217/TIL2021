@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>등수 구하기</title>
+</head>
+<body>
+
+<script>
+    function solution(arg) {
+        let answer = Array.from({
+            length: arg.length
+        }, () => 1) // [1,1,1,1,1] 로 초기화
+
+        for (let i = 0; i < arg.length; i++) {
+            for (let j = 0; j < arg.length; j++) {
+                if (arr[j] > arr[i]) answer[i]++
+            }
+        }
+        return answer
+    }
+
+    let par = [87, 89, 92, 100, 76]
+    console.log(solution(par))
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문자열 압축</title>
+</head>
+<body>
+
+
+<script>
+    function solution(arg) {
+        let answer = ''
+        let cnt = 1
+        arg = arg + ' '
+
+        for (let i = 0; i < arg.length - 1; i++) { // 띄어쓰기 전까지를 위해 -1
+            if (arg[i] === arg[i + 1]) cnt++; // String 도 바로 배열로 접근가능
+
+            else {
+                answer += arg[i]
+                if (cnt > 1) answer += String(cnt)
+                cnt = 0
+            }
+        }
+        return answer
+    }
+
+    let par = "KKHSSSSSSSE"
+    console.log(solution(par))
+</script>
+
+</body>
+</html>

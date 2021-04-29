@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>중복단어제거</title>
+</head>
+<body>
+<script>
+    function solution(arg) {
+        let answer;
+
+        console.log(arg.indexOf('good'))
+
+        answer = arg.filter((val, idx) => {
+            if (arg.indexOf(val) === idx) return val
+            // 중복되는 경우 indexOf 는 맨 처음것만 리턴되기 때문에 false 를 반환
+            // 중복이 아닌 배열로 생성됨
+        })
+
+        return answer
+
+    }
+
+    let par = ['good', 'time', 'good', 'time', 'student']
+    console.log(solution(par))
+</script>
+</body>
+</html>

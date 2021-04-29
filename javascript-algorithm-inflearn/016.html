@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>중복문자 제거 (indexOf)</title>
+</head>
+<body>
+<script>
+    function solution(arg) {
+        let answer = ""
+
+        console.log(arg.indexOf('k'))
+
+
+        for (let i = 0; i < s.length; i++) {
+            console.log(arg[i], i, arg.indexOf(arg[i]))
+
+            if (arg.indexOf(arg[i] === i)) answer += arg[i]
+        }
+
+        // 카운팅 세기기
+        let pos = arg.indexOf('k')
+        let count = 0
+
+        while (pos !== -1) {
+            count++
+            pos.s.indexOf('k', pos + 1)
+        }
+
+        return answer;
+    }
+
+    let par = "ksekkset"
+    console.log(solution(par))
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>격자판 최대합</title>
+</head>
+<body>
+<script>
+    function solution(arg) {
+        let answer = Number.MIN_SAFE_INTEGER
+
+        let num = arr.length
+
+        let sum1 = sum2 = 0
+
+        // 행, 열 합 구하기
+        for (let i = 0; i < num; i++) {
+
+            sum1 = sum2 = 0 // 초기화
+
+            for (let j = 0; j < num; j++) {
+
+                sum1 += arg[i][j]
+                sum2 += arg[j][i]
+            }
+
+            answer = Math.max(answer, sum1, sum2)
+        }
+
+        // 대각선 합 구하기
+        sum1 = sum2 = 0
+        for (let i = 0; i < num; i++) {
+            sum1 += arg[i][i]
+            sum2 += arg[i][num - i - 1]
+        }
+
+        answer = Math.max(answer, sum1, sum2)
+
+        return answer
+    }
+
+    let par = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+    ]
+    console.log(solution(par))
+</script>
+</body>
+</html>

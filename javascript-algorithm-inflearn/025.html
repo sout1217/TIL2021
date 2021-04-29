@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회문 문자열</title>
+</head>
+<body>
+<script>
+    function solution(arg) {
+        let answer = 'YES'
+
+        // 첫번째 방법
+        arg = arg.toLowerCase()
+        let len = arg.length // 4
+        for (let i = 0; i < len / 2; i++) {
+            if (arg[i] !== arg[len - i - 1]) {
+                answer = 'NO'
+                break
+            }
+        }
+
+        // 두번째 방법
+        arg = arg.toLowerCase()
+        let arr = arg.split('') // 빈 문자열로 한 경우 한 문자씩 배열로 생성한다
+        if (arr.reverse().join('') !== arg) answer = 'NO'
+
+        return answer
+    }
+
+    let par = "gooG"
+    console.log(solution(par))
+</script>
+</body>
+</html>

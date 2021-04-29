@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>봉우리 (4방향 탐색)</title>
+</head>
+<body>
+<script>
+    function solution(arg) {
+        let answer = 0
+        let num = arg.length
+
+        // 4방향을 탐색하기 위한 배열들
+        let dx = [-1, 0, 1, 0]
+        let dy = [0, 1, 0, -1]
+
+        for (let i = 0; i < num; i++) {
+            for (let j = 0; j < num; j++) {
+
+                let flag = 1
+
+                // 방향탐색 for 문
+                for (let k = 0; k < 4; k++) {
+                    let nx = i + dx[k] // i=0 + k= -1, 0, 1, 0 return -1, 0, 1, 0
+                    let ny = j + dy[k] // j= 0 + k=0, 1, 0, -1 return
+
+
+                    // 4방향 중에 큰 수 가 있는 경우 봉우리가 아니다
+                    if (0 <= nx && nx < num && 0 <= ny && ny < num // 실제로 존재하는 위치여야 함
+                        && arg[nx][ny] >= arg[i][j]) { // 4방향 중에 큰수 가 있는 경우 봉우리가 될 수 없다
+                        flag = 0
+                        break
+                    }
+                }
+
+                if (flag) answer++
+
+            }
+        }
+
+        return answer
+
+    }
+
+    let par = [[5, 3, 7, 2, 3],
+        [3, 7, 1, 6, 1],
+        [7, 2, 5, 3, 4],
+        [4, 3, 6, 4, 1],
+        [8, 7, 3, 5, 2]];
+
+    console.log(solution(par))
+</script>
+</body>
+</html>

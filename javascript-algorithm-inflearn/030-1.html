@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>내장함수를 이용한 자리수 합</title>
+</head>
+<body>
+
+<script>
+    function solution(arg) {
+        let answer = 0
+        let max = Number.MIN_SAFE_INTEGER
+
+        for (let val of arg) {
+
+            let sum = val.toString().split('').reduce((a, b) => a + Number(b), 0)
+
+            if (sum > max) { /* >= 를 하면 나중에 것이 정답이 된다 */
+                max = sum
+                answer = val
+            } else if (sum === max) {
+                if (val > answer) answer = val
+            }
+        }
+
+        return answer
+    }
+
+    let par = [128, 460, 603, 40, 521, 137, 123]
+    console.log(solution(par))
+</script>
+
+</body>
+</html>

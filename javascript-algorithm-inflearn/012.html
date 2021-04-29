@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>대문자로 통일</title>
+</head>
+<body>
+<script>
+    function solution(arg) {
+        let answer = ""
+
+        // 첫 번째 방법
+        for (let s of arguments) {
+            if (s === s.toLowerCase()) answer += s.toUpperCase()
+            else answer += s
+        }
+
+        // 두 번째 방법
+        // answer = arg.toUpperCase()
+
+        // 추가설명명
+        // String.fromCharCode(n) 는 ascii 코드를 string 으로 변환시켜준다
+
+        return answer
+
+    }
+
+    let par = "ItisTimeToStudy"
+    console.log(solution(par))
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>뒤집은 소수</title>
+</head>
+<body>
+<script>
+    function isPrime(num) {
+
+        // 1 그 자체라면 소수 이다
+        if (num === 1) return false
+
+        for (let i = 2; i <= parseInt(num / 2); i++) {
+            // 1과 자기자신만 가지는 것을 소수 이기때문에 소수 판별법이다 - 즉 2~14 까지
+            // 제곱근까지만 보면 된다. ( 그 이유는 16을 예로 듦자면, 2x8 4x4 8x2 를 보면 8x2 가 중복이 되기 때문에 확인하지 않아도 된다
+            // 그래서 num/2 절반만 돌면 된다
+
+            // 나눠지는 경우 소수가 아니다
+            if ((num % i) === 0) return false
+        }
+
+        // 나눠지는게 없었다면 소수임을 나타낸다
+        return true
+
+    }
+
+    function solution(arr) {
+        let answer = []
+
+        for (let val of arr) {
+            let result = 0
+
+            while (val) { // x 가 0 이 되면 멈춘다
+
+                let t = val % 10
+                result = result * 10 + t /// 뒤집기
+                val = parseInt(val / 10); // 소숫점 제거용
+
+                // 307 인 경우
+                // t= 307 % 10 = 7
+                // result = 0 * 10 + 7 = 7
+                // val = Number(307/10) = 30
+
+            }
+
+            if (isPrime(result)) answer.push(result)
+
+        }
+
+
+        return answer
+
+    }
+
+    let par = [32, 55, 62, 20, 250, 370, 200, 30, 100]
+    console.log(solution(par))
+</script>
+</body>
+</html>

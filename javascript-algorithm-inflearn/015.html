@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>가운데 문자 출력하기</title>
+</head>
+<body>
+<script>
+    function solution(arg) {
+        let answer;
+        let mid = Math.floor(arg.length / 2)
+
+        if (arg.length % 2 === 1) answer = arg.sub(mid, mid + 1)
+        else answer = arg.substring(mid - 1, mid + 1)
+
+        return answer
+
+    }
+
+    let par = "study"
+    console.log(solution(par))
+</script>
+</body>
+</html>

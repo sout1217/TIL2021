@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>가장 짧은 문자 거리</title>
+</head>
+<body>
+
+
+<script>
+    // 다시풀어보기..
+    function solution(arg) {
+        let answer = []
+        let keyword = arg[1]
+        let p = arg[0].length - 1;
+
+        for (let s of arg[0]) {
+
+            if (s === keyword) {
+                p = 0
+                answer.push(s)
+            } else {
+                p++
+                answer.push(p)
+            }
+        }
+
+        for (let i = arg[0].length - 1; i >= 0; i--) {
+            if (arg[i] === keyword) {
+                p = 0
+                answer[i] = 0
+            } else {
+                p++
+                answer[i] = Math.min(answer[i], p)
+            }
+        }
+
+        return answer
+
+    }
+
+    let par = ['teachermode', 'e']
+    console.log(solution(par))
+</script>
+
+</body>
+</html>

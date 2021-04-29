@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>유효한 팰린드롬</title>
+</head>
+<body>
+
+<script>
+    function solution(arg) {
+        let answer = 'YES'
+
+        // arg = arg.toLowerCase().replace(/[^a-z+\s]/g, '') // 띄어쓰기 제외하기
+        arg = arg.toLowerCase().replace(/[^a-z]/g, '') // a-z 가 아닌 경우 빈 문자열로 변환
+
+        console.log('arg= ', arg)
+
+        if (arg.split('').reverse().join('') !== arg) answer = 'NO'
+
+        return answer
+    }
+
+    let par = "found7ti, me: study; Yduts; emiU, 7Dnuof"
+    console.log(solution(par))
+</script>
+</body>
+</html>

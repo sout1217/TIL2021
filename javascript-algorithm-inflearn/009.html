@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A를 #으로</title>
+</head>
+<body>
+
+
+<script>
+    function solution(str) {
+        let anwser = str; // 문자는 참조가 아닌 값이 복사하기 때문에 바뀌지 않음
+
+        // 첫번재 방법
+        // for (let x of str) {
+        //     if(x==='A') anwser += '#'
+        //     else anwser += x
+        // }
+
+        answer = str.replace(/A/g, '#') // g는 모두를 뜻함 (안쓰면 1개만 바뀜)
+
+        return anwser
+    }
+
+    let str = "BANANA"
+    console.log(solution(str))
+</script>
+
+
+</body>
+</html>

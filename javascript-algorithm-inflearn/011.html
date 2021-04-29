@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>대문자 찾기</title>
+</head>
+<body>
+<script>
+    function solution(s) {
+        let answer = 0
+
+        for (let x of s) {
+            if (x === x.toUpperCase()) { // x 자체값은 변하지 않기 때문에 비교할 수 있다 (String 은 어떤 값으로 변하지 않는다)
+                answer++
+            }
+        }
+
+        return answer
+
+    }
+
+    let str = "KoreaTimeGood"
+    console.log(solution(str))
+</script>
+al
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문자 찾기</title>
+</head>
+<body>
+
+<script>
+    function solution(str, findText) {
+
+        let answer = 0
+
+        // 첫번재 방법
+        // for(let x of str) {
+        //     if (X === findText) answer++
+        // }
+
+        // 두번째 방법
+        answer = str.splice(findText).length - 1 // 구분자가 3개면 값은 4개되기 때문에 -1 을 해줌 // 끝에 r 있어도 빈문자열이 생긴다
+
+        return answer
+
+
+    }
+
+    let str = "COMPUTERPROGRAMMING"
+    console.log(solution(str, 'R'))
+
+</script>
+</body>
+</html>

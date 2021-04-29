@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자리수의 합</title>
+</head>
+<body>
+<script>
+    function solution(arg) {
+        let answer = 0
+        let max = Number.MIN_SAFE_INTEGER
+
+        for (let val of arg) {
+
+            let sum = 0, tmp = val
+
+            while (tmp) {
+                sum += tmp % 10
+                tmp = Math.floor(tmp / 10)
+
+                // 128 % 10 = 8
+                // 128/10 = 12.8 (내림) = 12
+
+                // 12%10 = 2
+                // 12/10 = 1.2 (내림) = 1
+
+                // 1%10 = 1
+                // 1/10 = 0.1 (내림) = 0 (while 문 종료)
+
+                // sum = 8 + 2 + 1 된다
+            }
+            console.log('sum= ', sum)
+
+            // max 의 값은 [자리수의 합들 배열] 값을 돌면서 큰 경우 교체
+            if (sum > max) { /* >= 를 하면 나중에 것이 정답이 된다 */
+                max = sum
+                answer = val // max 값이므로 정답으로 한다
+            } else if (sum === max) { // max 값이 2개이상인 경우 원래 기본 128과 137를 비교해서 137이 큰 숫자임을 처리함
+                if (val > answer) answer = val
+            }
+        }
+
+        return answer
+    }
+
+    let par = [128, 460, 603, 40, 521, 137, 123]
+    console.log(solution(par))
+</script>
+</body>
+</html>

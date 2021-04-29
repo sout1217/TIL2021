@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>세 수 중 최소값 찾기</title>
+</head>
+<body>
+
+
+<script>
+    function solution(a, b, c) {
+
+        if (a > b) a = b
+        if (a > c) a = c
+
+        return a
+
+    }
+
+    console.log(solution(6, 5, 11))
+    console.log(solution(3, 10, 11))
+</script>
+</body>
+</html>

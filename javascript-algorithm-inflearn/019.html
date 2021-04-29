@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>보이는 학생</title>
+</head>
+<body>
+
+<script>
+    function solution(arg) {
+        let answer = 1 // 첫번 째 학생은 항상 보임
+
+        let max = arg[0]
+
+        for (let i = 1; i < arg.length; i++) {
+            if (max < arg[i]) {
+                answer++
+                max = arg[i]
+            }
+        }
+
+        return answer
+
+    }
+
+    let par = [130, 135, 148, 140, 145, 150, 150, 153]
+    console.log(solution(par))
+</script>
+</body>
+</html>
