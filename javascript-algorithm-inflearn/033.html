@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>졸업 선물</title>
+</head>
+<body>
+
+
+<script>
+    function solution(m, product) {
+
+        // 총 비용으로 정리하기
+        /*
+        5 28
+        6 6
+        2 2
+        4 3
+        4 5
+        10 3
+
+        에서
+        2 2
+        4 3
+        4 5
+        6 6
+        10 3
+        으로 정렬하기
+         */
+
+        // 모든 경우를 다 해보는 완전탐색을 해야 한다
+
+        /*
+           출력 예제 1
+           4
+           출력 설명
+           (2,2), (4,3), (4,5) 와 (10,3) 를 할인 받아 (5,3) 에 사면 비용이 4+7+9+8= 28
+         */
+
+        let answer = 0
+        let n = product.length;
+
+        product.sort((a, b) => (a[0] + a[1]) - (b[0]) + b[1]) // 정렬
+
+        // m 은 원래의 예산액임
+
+        // 0번 상품부터 돈다
+        for (let i = 0; i < n; i++) {
+
+            // 남은 예산 = money
+            let money = m - (product[i][0] / 2 + product[i][1]) // 상품가격[i][0]   배송비[i][1]
+
+            // 몇 개를 살 수 있는 지 세는 cnt 변수
+            let cnt = 1
+
+            // 비용이 작은것 부터 사야되기 때문에 정렬을 한 번 한 것이 였다
+            for (let j = 0; j < n; j++) {
+
+                // 물건금액 예산금액보다 큰 경우 break 한다 (남은 물건까지의 for 문을 반복할 필요가 없다 그 이유는 정렬이 되있기 때문에 그 다음 물건도 큰 금액이다
+                if (j !== i && (product[j][0] + product[j][1] > money)) {
+                    break;
+                }
+
+                // i는 할인된 상품이기 때문에 사면 안된다
+                if (j !== i && (product[j][0] + product[j][1] <= money)) { // j번째의 상품가격이 남은 예산보다 작아야지만 물건을 살 수 있다
+                    money -= (product[j][0] + product[j][1]);
+                    cnt++;
+
+                }
+            }
+
+            // answer 와 cnt 중 최대값을 정답으로 설정한다
+            answer = Math.max(answer, cnt);
+        }
+        return answer
+    }
+
+    let par = [[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]]
+    console.log(solution(28, par))
+</script>
+</body>
+</html>

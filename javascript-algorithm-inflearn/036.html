@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>교집합 구하기 (오름차순으로 출력)</title>
+</head>
+<body>
+<script>
+    function solution(arg) {
+        // 이 중 for 문을 돌면서 중복이 있는 지 확인하는 방법도 있찌만
+        // two pointer 를 활용하는 방법이 있다
+
+        let p1 = p2 = 0
+        let answer = []
+
+        let arr1 = arg[0]
+        let arr2 = arg[1]
+        let n = arr1.length
+        let m = arr2.length
+
+        // 처음에 정렬이 필요하다
+        // 작은 값을 가르키는 pointer 를 증가 시킨다 (index)
+        // 예를들어 p1=1 이고 p2 가 2 일 때, 같은 값을 찾으려면 p2 를 증가시킨다면 찾을 수 없다
+        // p1을 증가시켜 1보다 큰 값 중 2가 있는 경우가 있을 수 있기 때문에 가능하다
+
+        arr1.sort()
+        arr2.sort()
+
+        // 두 배열의 교집합
+        while (p1 < n && p2 < m) {
+
+            // 서로 같은 경우
+            if (arr1[p1] === arr2[p2]) {
+                answer.push(arr[p1])
+                p1++
+                p2++
+
+                // p1 이 작은 경우
+            } else if (arr1[p1] < arr2[p2]) {
+                p1++
+                // p2 가 작은 경우
+            } else {
+                p2++
+            }
+        }
+
+
+        return answer;
+
+    }
+
+    let par = [[1, 3, 9, 5, 2], [3, 2, 5, 7, 8]]
+    console.log(solution(par))
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>연속 부분 수열2</title>
+</head>
+<body>
+<script>
+    function solution(m, arg) {
+        let answer = 0
+
+        let lt = sum = cnt = 0
+
+        // 5 이하가 되는 연속 수열 // 1,2,2,3으로 예시해서 하는 게 이해하기 좋다
+        for (let rt = 0; rt < arg.length; rt++) {
+            sum += arg[rt]
+
+            // sum 이 n 보다 큰 경우
+            while (sum > m) {
+                sum -= arg[lt];
+                lt++ // 왼쪽을 빼주고 인덱스 번호 증가
+
+            }
+
+            // 3 가지의 수를 조합해서하는 문제가 아니기 때문에
+            // 연속되는 수열로 5이하를 만들 수 있는 경우 수는 (1), (3), (1,3) 처럼 가능하다
+            answer += (rt - lt + 1)
+        }
+        return answer
+    }
+
+    let par = [1, 3, 1, 2, 3]
+    console.log(solution(5, par))
+</script>
+</body>
+</html>
