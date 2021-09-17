@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>아나그램</title>
+
+    Anagram이란 두 문자열이 알파벳의 나열 순서를 다르지만 그 구성이 일치하면 두 단어는 아나그램이라고 한다
+    즉, 단어는 다른데 사용된 알파벳과 개수는 같은 단어를 말한다
+
+
+</head>
+<body>
+
+
+<script>
+    function solution(str1, str2) {
+        let answer = 'Yes'
+
+        let hMap = new Map()
+
+
+        // 1번째 문자 탐색 후 map 넣기
+        for (let x of str1) {
+            if (hMap.has(x)) {
+                hMap.set(x, hMap.get(x) + 1)
+            } else {
+                hMap.set(x, 1)
+            }
+        }
+
+        // 2번째 문자 탐색
+        for (let x of str2) {
+            // 없는 경우
+            if (!hMap.has(x) || hMap.get(x) === 0) return "No" // 앞에가 참이면 2번째 or 문을 실행한다, str2 는 있는 str1 이 없는 경우
+
+            // 1개 빼주기
+            hMap.set(x, hMap.get(x)-1)
+        }
+
+        return answer
+
+    }
+
+    let a = 'abaCC'
+    let b = 'Caaab'
+    console.log(solution(a, b))
+</script>
+</body>
+</html>

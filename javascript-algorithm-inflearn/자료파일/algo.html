@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>테스트</title>
+</head>
+<body>
+
+<script>
+    function solution(n, m) {
+
+        let answer = []
+        let tmp = Array.from({length: m}, () => 0)
+        function DFS(level, start_num) {
+            tmp[0] = level
+            tmp[1] = start_num
+            if (level === m) {
+                answer.push(tmp.slice())
+            } else {
+                for (let i = start_num; i <= n; i++) { // 4가닥이 뻗어나감
+                    tmp[level] = i
+                    DFS(level+1, i+1)
+                }
+            }
+        }
+
+        DFS(0, 1)
+
+        return answer
+    }
+
+    let a = 4
+    let b = 2
+    console.log(solution(a, b))
+</script>
+
+</body>
+</html>

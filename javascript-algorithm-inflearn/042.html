@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>모든 아나그램 찾기 (해쉬, 투포인터 , 슬라이딩 윈도우)</title>
+</head>
+<body>
+
+
+<script>
+    function compareMaps(map1, map2) {
+
+        // size 가 다르면 바로 false 리턴 때리기
+        if (map1.size !== map2.size) return false
+
+        // map1 접근하기
+        for (let [key, val] of map1) {
+
+            // map1 에 있는 key가 map2 에 있는 지 확인하기
+            if (!map2.has(key) || map2.get(key) !== val) return false
+            // map1 의 key 가 map2 에 존재는 하지만 value(개수)가 다른 경우 false 리던
+            // if (map2.get(key) !== val) return false // 위에 or 조건으로 걸 수 있기때문에 주석처리 하였음
+
+        }
+
+        return true
+    }
+
+    function solution(s, t) {
+
+        // 연속된 b 의 문자의 수 만큼 (슬라이딩 윈도우) 만큼 이동하여
+        // b 랑 비교해서 아나그램인 지 확인 후 맞는 경우 count++ 를 해야한다
+        let answer = 0
+
+        let sMap = new Map()
+        let tMap = new Map()
+
+        // tMap init
+        for (let x of t) {
+            if (tMap.has(x)) tMap.set(x, tMap.get(x) + 1)
+            else tMap.set(x, 1)
+        }
+
+        let len = t.length - 1 // index = 2
+
+        // sMap init
+        for (let i = 0; i < len; i++) {
+            if (sMap.has(s[i])) sMap.set(s[i], sMap.get(s[i]) + 1)
+            else sMap.set(s[i], 1)
+        }
+
+
+        // two pointer
+        let lt = 0
+        for (let rt = len; rt < s.length; rt++) {
+            if (sMap.has(s[rt])) sMap.set(s[rt], sMap.get(s[rt])+1)
+            else sMap.set(s[rt], 1)
+
+            if (compareMaps(sMap, tMap)) answer++
+
+            // lt 빼기
+            sMap.set(s[lt], sMap.get(s[lt]-1)) // 추가되어있기 때문에 다음 단계로 넘어가기 위해 빼준다
+
+
+            // 0 인 경우 해당 key 값 삭제
+            if (sMap.get(s[lt]) === 0) {
+                sMap.delete(s[lt])
+            }
+
+            // lt 인덱스 증가와 다음 for 문으로 가면서 rt 인덱스 증가
+            lt++
+        }
+
+        return answer
+
+    }
+
+    let a = 'bacaAacba'
+    let b = 'abc'
+
+    console.log(solution(a, b))
+</script>
+</body>
+</html>
